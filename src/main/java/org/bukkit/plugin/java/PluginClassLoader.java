@@ -69,6 +69,13 @@ public class PluginClassLoader extends URLClassLoader {
         if (name.startsWith("org.bukkit.") || name.startsWith("net.minecraft.")) {
             throw new ClassNotFoundException(name);
         }
+
+        // Spigot start
+        if (checkGlobal && name.equals("org.mcstats.Metrics")) {
+            loader.server.getLogger().warning("Plugin from file: " + getURLs()[0] + " has embedded Metrics in the default package. This is not advisable, go nag them!");
+        }
+        // Spigot end
+
         Class<?> result = classes.get(name);
 
         if (result == null) {
