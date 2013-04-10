@@ -11,17 +11,18 @@ import org.bukkit.inventory.ItemStack;
 public class InventoryClickEvent extends InventoryEvent implements Cancellable {
     private static final HandlerList handlers = new HandlerList();
     private SlotType slot_type;
-    private boolean rightClick, shiftClick;
+    private boolean rightClick, shiftClick, doubleClick;
     private Result result;
     private int whichSlot;
     private int rawSlot;
     private ItemStack current = null;
 
-    public InventoryClickEvent(InventoryView what, SlotType type, int slot, boolean right, boolean shift) {
+    public InventoryClickEvent(InventoryView what, SlotType type, int slot, boolean right, boolean shift, boolean doubleClick) {
         super(what);
         this.slot_type = type;
         this.rightClick = right;
         this.shiftClick = shift;
+        this.doubleClick = doubleClick;
         this.result = Result.DEFAULT;
         this.rawSlot = slot;
         this.whichSlot = what.convertSlot(slot);
@@ -64,6 +65,13 @@ public class InventoryClickEvent extends InventoryEvent implements Cancellable {
      */
     public boolean isLeftClick() {
         return !rightClick;
+    }
+
+    /**
+     * @return True if the click is a double click. If it is a double click it will group up all items from the container of the same type onto the cursor.
+     */
+    public boolean isDoubleClick() {
+        return doubleClick;
     }
 
     /**
