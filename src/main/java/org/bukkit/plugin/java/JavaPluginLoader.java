@@ -323,7 +323,7 @@ public final class JavaPluginLoader implements PluginLoader {
                     }
                 }
             };
-            if (useTimings) {
+            if (true) { // Spigot - TRL handles useTimings check now
                 eventSet.add(new TimedRegisteredListener(listener, executor, eh.priority(), plugin, eh.ignoreCancelled()));
             } else {
                 eventSet.add(new RegisteredListener(listener, executor, eh.priority(), plugin, eh.ignoreCancelled()));
