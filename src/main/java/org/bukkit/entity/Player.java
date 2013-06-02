@@ -803,6 +803,11 @@ public interface Player extends HumanEntity, Conversable, CommandSender, Offline
         {
             throw new UnsupportedOperationException( "Not supported yet." );
         }
+
+        public void playEffect(Location location, Effect effect, int id, int data, float offsetX, float offsetY, float offsetZ, float speed, int particleCount, int radius)
+        {
+            throw new UnsupportedOperationException( "Not supported yet." );
+        }
     }
 
     Spigot spigot();
