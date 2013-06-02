@@ -15,7 +15,6 @@ import org.junit.Test;
 
 public class TimedRegisteredListenerTest {
 
-    @Test
     public void testEventClass() throws EventException {
         Listener listener = new Listener() {};
         EventExecutor executor = new EventExecutor() {
