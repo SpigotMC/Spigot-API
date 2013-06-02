@@ -35,7 +35,7 @@ public class TimingsCommand extends BukkitCommand {
     public TimingsCommand(String name) {
         super(name);
         this.description = "Records timings for all plugin events";
-        this.usageMessage = "/timings <reset|merged|separate> [paste]"; // Spigot
+        this.usageMessage = "/timings <reset|merged|separate|on|off> [paste]"; // Spigot
         this.setPermission("bukkit.command.timings");
     }
 
@@ -46,14 +46,33 @@ public class TimingsCommand extends BukkitCommand {
             sender.sendMessage(ChatColor.RED + "Usage: " + usageMessage);
             return false;
         }
-        if (!sender.getServer().getPluginManager().useTimings()) {
+        /*if (!sender.getServer().getPluginManager().useTimings()) {
             sender.sendMessage("Please enable timings by setting \"settings.plugin-profiling\" to true in bukkit.yml");
             return true;
+        }*/
+
+        // Spigot start - dynamic enable
+        if ( "on".equals( args[0] ) )
+        {
+            ( (org.bukkit.plugin.SimplePluginManager) Bukkit.getPluginManager() ).useTimings( true );
+            sender.sendMessage( "Enabled Timings" );
+        } else if ( "off".equals( args[0] ) )
+        {
+            ( (org.bukkit.plugin.SimplePluginManager) Bukkit.getPluginManager() ).useTimings( false );
+            sender.sendMessage( "Disabled Timings" );
         }
+        // Spigot end
 
         boolean separate = "separate".equals(args[0]);
         boolean paste = "paste".equals( args[0] ); // Spigot
-        if ("reset".equals(args[0])) {
+        if ("on".equals(args[0]) || "reset".equals(args[0])) { // Spigot
+            // Spigot start
+            if ( !"on".equals( args[0] ) && !Bukkit.getPluginManager().useTimings() )
+            {
+                sender.sendMessage( "Please enable timings by typing /timings on" );
+                return true;
+            }
+            // Spigot end
             for (HandlerList handlerList : HandlerList.getHandlerLists()) {
                 for (RegisteredListener listener : handlerList.getRegisteredListeners()) {
                     if (listener instanceof TimedRegisteredListener) {
@@ -61,10 +80,18 @@ public class TimingsCommand extends BukkitCommand {
                     }
                 }
             }
-            timingStart = System.nanoTime(); // Spigot
+            // Spigot start
+            org.spigotmc.CustomTimingsHandler.reload();
+            timingStart = System.nanoTime();
             sender.sendMessage("Timings reset");
-        } else if ("merged".equals(args[0]) || separate || paste) { // Spigot
-            long sampleTime = System.nanoTime() - timingStart; // Spigot
+        } else if ("merged".equals(args[0]) || separate || paste) {
+            if ( !Bukkit.getPluginManager().useTimings() )
+            {
+                sender.sendMessage( "Please enable timings by typing /timings on" );
+                return true;
+            }
+            long sampleTime = System.nanoTime() - timingStart;
+            // Spigot end
             int index = 0;
             int pluginIdx = 0;
             File timingFolder = new File("timings");
@@ -99,12 +126,15 @@ public class TimingsCommand extends BukkitCommand {
                             totalTime += time;
                             Class<? extends Event> eventClass = trl.getEventClass();
                             if (count > 0 && eventClass != null) {
-                                fileTimings.println("    " + eventClass.getSimpleName() + (trl.hasMultiple() ? " (and sub-classes)" : "") + " Time: " + time + " Count: " + count + " Avg: " + avg);
+                                fileTimings.println("    " + eventClass.getSimpleName() + (trl.hasMultiple() ? " (and sub-classes)" : "") + " Time: " + time + " Count: " + count + " Avg: " + avg + " Violations: " + trl.violations); // Spigot
                             }
                         }
                     }
                     fileTimings.println("    Total time " + totalTime + " (" + totalTime / 1000000000 + "s)");
                 }
+
+                // Spigot start
+                org.spigotmc.CustomTimingsHandler.printTimings(fileTimings);
                 fileTimings.println( "Sample time " + sampleTime + " (" + sampleTime / 1E9 + "s)" ); // Spigot
                 // Spigot start
                 if ( paste )
@@ -114,6 +144,7 @@ public class TimingsCommand extends BukkitCommand {
                 }
                 // Spigot end
                 sender.sendMessage("Timings written to " + timings.getPath());
+                sender.sendMessage( "Paste contents of file into form at http://aikar.co/timings.php to read results." );
                 if (separate) sender.sendMessage("Names written to " + names.getPath());
             } catch (IOException e) {
             } finally {
