@@ -21,6 +21,7 @@ import com.google.common.collect.ImmutableList;
 
 public class TimingsCommand extends BukkitCommand {
     private static final List<String> TIMINGS_SUBCOMMANDS = ImmutableList.of("merged", "reset", "separate");
+    public static long timingStart = 0; // Spigot
 
     public TimingsCommand(String name) {
         super(name);
@@ -50,9 +51,11 @@ public class TimingsCommand extends BukkitCommand {
                     }
                 }
             }
+            timingStart = System.nanoTime(); // Spigot
             sender.sendMessage("Timings reset");
         } else if ("merged".equals(args[0]) || separate) {
 
+            long sampleTime = System.nanoTime() - timingStart; // Spigot
             int index = 0;
             int pluginIdx = 0;
             File timingFolder = new File("timings");
@@ -92,6 +95,7 @@ public class TimingsCommand extends BukkitCommand {
                     }
                     fileTimings.println("    Total time " + totalTime + " (" + totalTime / 1000000000 + "s)");
                 }
+                fileTimings.println( "Sample time " + sampleTime + " (" + sampleTime / 1E9 + "s)" ); // Spigot
                 sender.sendMessage("Timings written to " + timings.getPath());
                 if (separate) sender.sendMessage("Names written to " + names.getPath());
             } catch (IOException e) {
