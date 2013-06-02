@@ -20,6 +20,7 @@ public class ReloadCommand extends BukkitCommand {
     public boolean execute(CommandSender sender, String currentAlias, String[] args) {
         if (!testPermission(sender)) return true;
 
+        org.spigotmc.CustomTimingsHandler.reload(); // Spigot: TODO: Why is this here?
         Bukkit.reload();
         Command.broadcastCommandMessage(sender, ChatColor.GREEN + "Reload complete.");
 
