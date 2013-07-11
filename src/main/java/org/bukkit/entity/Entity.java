@@ -280,4 +280,11 @@ public interface Entity extends Metadatable {
      * @return The current vehicle.
      */
     public Entity getVehicle();
+    
+    /**
+     * Returns wether this entity is invulnerable.
+     *
+     * @return True if the entity is invulnerable.
+     */
+    public boolean isInvulnerable();
 }
