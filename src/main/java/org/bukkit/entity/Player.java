@@ -808,6 +808,27 @@ public interface Player extends HumanEntity, Conversable, CommandSender, Offline
         {
             throw new UnsupportedOperationException( "Not supported yet." );
         }
+
+        /**
+         * Gets whether the player collides with entities
+         *
+         * @return the player's collision toggle state
+         */
+        public boolean getCollidesWithEntities()
+        {
+            throw new UnsupportedOperationException( "Not supported yet." );
+        }
+
+        /**
+         * Sets whether the player collides with entities
+         *
+         * @param collides whether the player should collide with entities or
+         * not.
+         */
+        public void setCollidesWithEntities(boolean collides)
+        {
+            throw new UnsupportedOperationException( "Not supported yet." );
+        }
     }
 
     Spigot spigot();
