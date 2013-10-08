@@ -770,6 +770,28 @@ public interface Player extends HumanEntity, Conversable, CommandSender, Offline
         {
             throw new UnsupportedOperationException( "Not supported yet." );
         }
+        
+        /**
+         * Gets the player's experience cooldown
+         *
+         * @return the player's experience cooldown
+         */
+        public int getExperienceCooldown()
+        {
+            throw new UnsupportedOperationException( "Not supported yet." );
+        }
+
+        /**
+         * Sets the player's experience cooldown
+         *
+         * @param cooldown how much time is needed for the player
+         * to gain experience points. A cooldown of 0 disables
+         * experience point pickup.
+         */
+        public void setExperienceCooldown(int cooldown)
+        {
+            throw new UnsupportedOperationException( "Not supported yet." );
+        }
     }
 
     Spigot spigot();
