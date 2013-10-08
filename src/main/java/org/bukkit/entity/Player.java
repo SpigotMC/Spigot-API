@@ -762,6 +762,14 @@ public interface Player extends HumanEntity, Conversable, CommandSender, Offline
         {
             throw new UnsupportedOperationException( "Not supported yet." );
         }
+
+        /**
+         * Respawns the player if dead.
+         */
+        public void respawn()
+        {
+            throw new UnsupportedOperationException( "Not supported yet." );
+        }
     }
 
     Spigot spigot();
