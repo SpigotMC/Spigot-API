@@ -1,11 +1,14 @@
 package org.bukkit.command.defaults;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.Plugin;
+
+import com.google.common.collect.ImmutableList;
 
 public class PluginsCommand extends BukkitCommand {
     public PluginsCommand(String name) {
@@ -39,5 +42,10 @@ public class PluginsCommand extends BukkitCommand {
         }
 
         return "(" + plugins.length + "): " + pluginList.toString();
+    }
+
+    @Override
+    public List<String> tabComplete(CommandSender sender, String alias, String[] args) throws IllegalArgumentException {
+        return ImmutableList.of();
     }
 }

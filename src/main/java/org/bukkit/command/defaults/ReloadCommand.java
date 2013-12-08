@@ -1,11 +1,14 @@
 package org.bukkit.command.defaults;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+
+import com.google.common.collect.ImmutableList;
 
 public class ReloadCommand extends BukkitCommand {
     public ReloadCommand(String name) {
@@ -25,5 +28,10 @@ public class ReloadCommand extends BukkitCommand {
         Command.broadcastCommandMessage(sender, ChatColor.GREEN + "Reload complete.");
 
         return true;
+    }
+
+    @Override
+    public List<String> tabComplete(CommandSender sender, String alias, String[] args) throws IllegalArgumentException {
+        return ImmutableList.of();
     }
 }
