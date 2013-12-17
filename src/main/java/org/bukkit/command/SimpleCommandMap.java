@@ -330,4 +330,18 @@ public class SimpleCommandMap implements CommandMap {
             }
         }
     }
+
+    // Spigot Start
+    public static void removeFallback(String name)
+    {
+        Iterator<VanillaCommand> it = fallbackCommands.iterator();
+        while ( it.hasNext() )
+        {
+            if ( it.next().getName().equals( name ) )
+            {
+                it.remove();
+            }
+        }
+    }
+    // Spigot End
 }
