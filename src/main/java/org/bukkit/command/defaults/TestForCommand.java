@@ -1,8 +1,12 @@
 package org.bukkit.command.defaults;
 
-import org.bukkit.Bukkit;
+import java.util.List;
+
+import org.apache.commons.lang.Validate;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
+
+import com.google.common.collect.ImmutableList;
 
 public class TestForCommand extends VanillaCommand {
     public TestForCommand() {
@@ -22,5 +26,17 @@ public class TestForCommand extends VanillaCommand {
 
         sender.sendMessage(ChatColor.RED + "/testfor is only usable by commandblocks with analog output.");
         return true;
+    }
+    
+    @Override
+    public List<String> tabComplete(CommandSender sender, String alias, String[] args) throws IllegalArgumentException {
+        Validate.notNull(sender, "Sender cannot be null");
+        Validate.notNull(args, "Arguments cannot be null");
+        Validate.notNull(alias, "Alias cannot be null");
+
+        if (args.length >= 1) {
+            return super.tabComplete(sender, alias, args);
+        }
+        return ImmutableList.of();
     }
 }
