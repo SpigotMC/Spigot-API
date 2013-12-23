@@ -45,4 +45,16 @@ public class TellCommand extends VanillaCommand {
 
         return true;
     }
+
+    // Spigot Start
+    @Override
+    public java.util.List<String> tabComplete(CommandSender sender, String alias, String[] args) throws IllegalArgumentException
+    {
+        if ( args.length == 0 )
+        {
+            return super.tabComplete( sender, alias, args );
+        }
+        return java.util.Collections.emptyList();
+    }
+    // Spigot End
 }
