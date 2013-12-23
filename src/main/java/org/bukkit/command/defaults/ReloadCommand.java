@@ -26,4 +26,12 @@ public class ReloadCommand extends BukkitCommand {
 
         return true;
     }
+
+    // Spigot Start
+    @Override
+    public java.util.List<String> tabComplete(CommandSender sender, String alias, String[] args) throws IllegalArgumentException
+    {
+        return java.util.Collections.emptyList();
+    }
+    // Spigot End
 }
