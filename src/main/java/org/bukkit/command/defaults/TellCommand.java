@@ -48,4 +48,16 @@ public class TellCommand extends VanillaCommand {
     public boolean matches(String input) {
         return input.equalsIgnoreCase("tell") || input.equalsIgnoreCase("w") || input.equalsIgnoreCase("msg");
     }
+
+    // Spigot Start
+    @Override
+    public java.util.List<String> tabComplete(CommandSender sender, String alias, String[] args) throws IllegalArgumentException
+    {
+        if ( args.length == 0 )
+        {
+            return super.tabComplete( sender, alias, args );
+        }
+        return java.util.Collections.emptyList();
+    }
+    // Spigot End
 }
