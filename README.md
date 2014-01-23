@@ -1,11 +1,11 @@
-Bukkit
+Spigot-API
 ======
 
 A Minecraft Server API.
 
-Website: [http://bukkit.org](http://bukkit.org)  
-Bugs/Suggestions: [http://leaky.bukkit.org](http://leaky.bukkit.org)  
-Contributing Guidelines: [CONTRIBUTING.md](https://github.com/Bukkit/Bukkit/blob/master/CONTRIBUTING.md)
+Website: [http://spigotmc.org](http://spigotmc.org)  
+Bugs/Suggestions: [http://www.spigotmc.org/forums/bugs-feature-requests.8/](http://www.spigotmc.org/forums/bugs-feature-requests.8/)  
+Contributing Guidelines: [CONTRIBUTING.md](https://github.com/SpigotMC/Spigot-API/blob/master/CONTRIBUTING.md)
 
 Compilation
 -----------
