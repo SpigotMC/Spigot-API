@@ -1084,6 +1084,16 @@ public interface Player extends HumanEntity, Conversable, CommandSender, Offline
         {
             throw new UnsupportedOperationException( "Not supported yet." );
         }
+
+        /**
+         * Gets player locale language.
+         *
+         * @return the player's client language settings
+         */
+        public String getLocale()
+        {
+            throw new UnsupportedOperationException( "Not supported yet." );
+        }
     }
 
     Spigot spigot();
