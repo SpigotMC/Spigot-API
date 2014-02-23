@@ -1200,6 +1200,30 @@ public interface World extends PluginMessageRecipient, Metadatable {
         {
             throw new UnsupportedOperationException( "Not supported yet." );
         }
+        
+        /**
+         * Strikes lightning at the given {@link Location} and possibly without sound
+         *
+         * @param loc The location to strike lightning
+         * @param isSilent Whether this strike makes no sound
+         * @return The lightning entity.
+         */        
+        public LightningStrike strikeLightning(Location loc, boolean isSilent)
+        {
+            throw new UnsupportedOperationException( "Not supported yet." );
+        }
+        
+        /**
+         * Strikes lightning at the given {@link Location} without doing damage and possibly without sound
+         *
+         * @param loc The location to strike lightning
+         * @param isSilent Whether this strike makes no sound
+         * @return The lightning entity.
+         */
+        public LightningStrike strikeLightningEffect(Location loc, boolean isSilent)
+        {
+            throw new UnsupportedOperationException( "Not supported yet." );
+        }
     }
 
     Spigot spigot();
