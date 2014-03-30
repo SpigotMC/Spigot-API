@@ -197,7 +197,6 @@ public final class Bukkit {
     /**
      * @see Server#getPlayer(String name)
      */
-    @Deprecated
     public static Player getPlayer(String name) {
         return server.getPlayer(name);
     }
@@ -205,7 +204,6 @@ public final class Bukkit {
     /**
      * @see Server#matchPlayer(String name)
      */
-    @Deprecated
     public static List<Player> matchPlayer(String name) {
         return server.matchPlayer(name);
     }
@@ -448,7 +446,6 @@ public final class Bukkit {
     /**
      * @see Server#getPlayerExact(String name)
      */
-    @Deprecated
     public static Player getPlayerExact(String name) {
         return server.getPlayerExact(name);
     }
