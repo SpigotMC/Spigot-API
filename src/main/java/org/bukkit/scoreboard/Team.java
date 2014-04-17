@@ -118,6 +118,15 @@ public interface Team {
      */
     Set<OfflinePlayer> getPlayers() throws IllegalStateException;
 
+    // Spigot start
+    /**
+     * Same as the player method, but with an arbitrary string.
+     *
+     * @see #getPlayers()
+     */
+    Set<String> getEntries() throws IllegalStateException;
+    // Spigot End
+
     /**
      * Gets the size of the team
      *
@@ -145,6 +154,15 @@ public interface Team {
      */
     void addPlayer(OfflinePlayer player) throws IllegalStateException, IllegalArgumentException;
 
+    // Spigot start
+    /**
+     * Same as the player method, but with an arbitrary string.
+     *
+     * @see #addPlayer(org.bukkit.OfflinePlayer)
+     */
+    void addEntry(String entry) throws IllegalStateException, IllegalArgumentException;
+    // Spigot end
+
     /**
      * Removes the player from this team.
      *
@@ -154,6 +172,15 @@ public interface Team {
      * @throws IllegalStateException if this team has been unregistered
      */
     boolean removePlayer(OfflinePlayer player) throws IllegalStateException, IllegalArgumentException;
+
+    // Spigot start
+    /**
+     * Same as the player method, but with an arbitrary string.
+     *
+     * @see #removePlayer(org.bukkit.OfflinePlayer)
+     */
+    boolean removeEntry(String entry) throws IllegalStateException, IllegalArgumentException;
+    // Spigot end
 
     /**
      * Unregisters this team from the Scoreboard
@@ -171,4 +198,13 @@ public interface Team {
      * @throws IllegalStateException if this team has been unregistered
      */
     boolean hasPlayer(OfflinePlayer player) throws IllegalArgumentException, IllegalStateException;
+
+    // Spigot start
+    /**
+     * Same as the player method, but with an arbitrary string.
+     *
+     * @see #hasPlayer(org.bukkit.OfflinePlayer)
+     */
+    boolean hasEntry(String entry) throws IllegalArgumentException,IllegalStateException;
+    // Spigot end
 }
