@@ -49,7 +49,7 @@ public class DeopCommand extends VanillaCommand {
 
         if (args.length == 1) {
             List<String> completions = new ArrayList<String>();
-            for (OfflinePlayer player : Bukkit.getOfflinePlayers()) {
+            for (OfflinePlayer player : Bukkit.getOperators()) { // Spigot - only deop ops!
                 String playerName = player.getName();
                 if (player.isOp() && StringUtil.startsWithIgnoreCase(playerName, args[0])) {
                     completions.add(playerName);
