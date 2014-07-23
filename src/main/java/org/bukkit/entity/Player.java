@@ -333,10 +333,8 @@ public interface Player extends HumanEntity, Conversable, CommandSender, Offline
     /**
      * Forces an update of the player's entire inventory.
      *
-     * @deprecated This method should not be relied upon as it is a temporary
-     *     work-around for a larger, more complicated issue.
      */
-    @Deprecated
+    //@Deprecated // Spigot - undeprecate
     public void updateInventory();
 
     /**
