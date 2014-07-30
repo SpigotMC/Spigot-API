@@ -67,13 +67,16 @@ public class CustomTimingsHandler
         printStream.println( "# Version " + Bukkit.getVersion() );
         int entities = 0;
         int livingEntities = 0;
+        int loadedChunks = 0;
         for ( World world : Bukkit.getWorlds() )
         {
             entities += world.getEntities().size();
             livingEntities += world.getLivingEntities().size();
+            loadedChunks += world.getLoadedChunks().size();
         }
         printStream.println( "# Entities " + entities );
         printStream.println( "# LivingEntities " + livingEntities );
+        printStream.println( "# LoadedChunks " + loadedChunks );
     }
 
     /**
