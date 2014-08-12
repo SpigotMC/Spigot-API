@@ -209,6 +209,10 @@ public class SimpleCommandMap implements CommandMap {
         Validate.notNull(sender, "Sender cannot be null");
         Validate.notNull(cmdLine, "Command line cannot null");
 
+        if(cmdLine.equals("")){
+            return new ArrayList<String>();
+        }
+
         int spaceIndex = cmdLine.indexOf(' ');
 
         if (spaceIndex == -1) {
