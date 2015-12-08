@@ -391,4 +391,21 @@ public interface LivingEntity extends Entity, Damageable, ProjectileSource {
      * @return whether the operation was successful
      */
     public boolean setLeashHolder(Entity holder);
+    
+    /**
+     * Sets whether or not this entity can be pushed by other entities.
+     * <p>
+     * This method does not effect players as they cannot be pushed
+     * 
+     * @param pushable pushable or not
+     */
+    public void setCanBePushed(boolean pushable);
+    
+    /**
+     * Returns whether or not the entity is pushable
+     * 
+     * @return whether the entity is pushable
+     */
+    public boolean isPushable();
+    
 }
