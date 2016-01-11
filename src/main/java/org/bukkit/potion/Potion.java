@@ -192,7 +192,7 @@ public class Potion {
      * @return The effects that this potion applies
      */
     public Collection<PotionEffect> getEffects() {
-        if (type == null) return ImmutableList.<PotionEffect>of();
+        if (type == null) return ImmutableList.of();
         return getBrewer().getEffectsFromDamage(toDamageValue());
     }
 

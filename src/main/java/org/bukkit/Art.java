@@ -1,10 +1,9 @@
 package org.bukkit;
 
-import java.util.HashMap;
-
+import com.google.common.collect.Maps;
 import org.apache.commons.lang.Validate;
 
-import com.google.common.collect.Maps;
+import java.util.HashMap;
 
 /**
  * Represents the art on a painting
@@ -41,7 +40,7 @@ public enum Art {
     private static final HashMap<String, Art> BY_NAME = Maps.newHashMap();
     private static final HashMap<Integer, Art> BY_ID = Maps.newHashMap();
 
-    private Art(int id, int width, int height) {
+    Art(int id, int width, int height) {
         this.id = id;
         this.width = width;
         this.height = height;

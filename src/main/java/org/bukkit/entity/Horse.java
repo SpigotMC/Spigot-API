@@ -11,7 +11,7 @@ public interface Horse extends Animals, Vehicle, InventoryHolder, Tameable {
     /**
      * Represents the different types of horses that may exist.
      */
-    public enum Variant {
+    enum Variant {
         /**
          * A normal horse
          */
@@ -38,7 +38,7 @@ public interface Horse extends Animals, Vehicle, InventoryHolder, Tameable {
     /**
      * Represents the base color that the horse has.
      */
-    public enum Color {
+    enum Color {
         /**
          * Snow white
          */
@@ -73,7 +73,7 @@ public interface Horse extends Animals, Vehicle, InventoryHolder, Tameable {
     /**
      * Represents the style, or markings, that the horse has.
      */
-    public enum Style {
+    enum Style {
         /**
          * No markings
          */
@@ -106,7 +106,7 @@ public interface Horse extends Animals, Vehicle, InventoryHolder, Tameable {
      *
      * @return a {@link Variant} representing the horse's variant
      */
-    public Variant getVariant();
+    Variant getVariant();
 
     /**
      * Sets the horse's variant.
@@ -122,7 +122,7 @@ public interface Horse extends Animals, Vehicle, InventoryHolder, Tameable {
      *
      * @param variant a {@link Variant} for this horse
      */
-    public void setVariant(Variant variant);
+    void setVariant(Variant variant);
 
     /**
      * Gets the horse's color.
@@ -132,7 +132,7 @@ public interface Horse extends Animals, Vehicle, InventoryHolder, Tameable {
      *
      * @return a {@link Color} representing the horse's group
      */
-    public Color getColor();
+    Color getColor();
 
     /**
      * Sets the horse's color.
@@ -142,7 +142,7 @@ public interface Horse extends Animals, Vehicle, InventoryHolder, Tameable {
      *
      * @param color a {@link Color} for this horse
      */
-    public void setColor(Color color);
+    void setColor(Color color);
 
     /**
      * Gets the horse's style.
@@ -153,7 +153,7 @@ public interface Horse extends Animals, Vehicle, InventoryHolder, Tameable {
      *
      * @return a {@link Style} representing the horse's style
      */
-    public Style getStyle();
+    Style getStyle();
 
     /**
      * Sets the style of this horse.
@@ -164,14 +164,14 @@ public interface Horse extends Animals, Vehicle, InventoryHolder, Tameable {
      *
      * @param style a {@link Style} for this horse
      */
-    public void setStyle(Style style);
+    void setStyle(Style style);
 
     /**
      * Gets whether the horse has a chest equipped.
      *
      * @return true if the horse has chest storage
      */
-    public boolean isCarryingChest();
+    boolean isCarryingChest();
 
     /**
      * Sets whether the horse has a chest equipped.
@@ -179,7 +179,7 @@ public interface Horse extends Animals, Vehicle, InventoryHolder, Tameable {
      *
      * @param chest true if the horse should have a chest
      */
-    public void setCarryingChest(boolean chest);
+    void setCarryingChest(boolean chest);
 
     /**
      * Gets the domestication level of this horse.
@@ -190,7 +190,7 @@ public interface Horse extends Animals, Vehicle, InventoryHolder, Tameable {
      *
      * @return domestication level
      */
-    public int getDomestication();
+    int getDomestication();
 
     /**
      * Sets the domestication level of this horse.
@@ -204,7 +204,7 @@ public interface Horse extends Animals, Vehicle, InventoryHolder, Tameable {
      *
      * @param level domestication level
      */
-    public void setDomestication(int level);
+    void setDomestication(int level);
 
     /**
      * Gets the maximum domestication level of this horse.
@@ -214,7 +214,7 @@ public interface Horse extends Animals, Vehicle, InventoryHolder, Tameable {
      *
      * @return the max domestication level
      */
-    public int getMaxDomestication();
+    int getMaxDomestication();
 
     /**
      * Sets the maximum domestication level of this horse.
@@ -227,7 +227,7 @@ public interface Horse extends Animals, Vehicle, InventoryHolder, Tameable {
      *
      * @param level the max domestication level
      */
-    public void setMaxDomestication(int level);
+    void setMaxDomestication(int level);
 
     /**
      * Gets the jump strength of this horse.
@@ -237,7 +237,7 @@ public interface Horse extends Animals, Vehicle, InventoryHolder, Tameable {
      *
      * @return the horse's jump strength
      */
-    public double getJumpStrength();
+    double getJumpStrength();
 
     /**
      * Sets the jump strength of this horse.
@@ -249,8 +249,8 @@ public interface Horse extends Animals, Vehicle, InventoryHolder, Tameable {
      *
      * @param strength jump strength for this horse
      */
-    public void setJumpStrength(double strength);
+    void setJumpStrength(double strength);
 
     @Override
-    public HorseInventory getInventory();
+    HorseInventory getInventory();
 }

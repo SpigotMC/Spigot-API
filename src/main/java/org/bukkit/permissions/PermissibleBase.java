@@ -1,14 +1,11 @@
 package org.bukkit.permissions;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.logging.Level;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
+
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Level;
 
 /**
  * Base Permissible for use in any Permissible object via proxy or extension
@@ -16,8 +13,8 @@ import org.bukkit.plugin.Plugin;
 public class PermissibleBase implements Permissible {
     private ServerOperator opable = null;
     private Permissible parent = this;
-    private final List<PermissionAttachment> attachments = new LinkedList<PermissionAttachment>();
-    private final Map<String, PermissionAttachmentInfo> permissions = new HashMap<String, PermissionAttachmentInfo>();
+    private final List<PermissionAttachment> attachments = new LinkedList<>();
+    private final Map<String, PermissionAttachmentInfo> permissions = new ConcurrentHashMap<>();
 
     public PermissibleBase(ServerOperator opable) {
         this.opable = opable;

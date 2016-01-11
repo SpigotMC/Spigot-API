@@ -43,7 +43,7 @@ public class LocationTest {
     public static List<Object[]> data() {
         Random RANDOM = new Random(1l); // Test is deterministic
         int r = 0;
-        return ImmutableList.<Object[]>of(
+        return ImmutableList.of(
             new Object[] { "X",
                 1, 0, 0,
                 270, 0
