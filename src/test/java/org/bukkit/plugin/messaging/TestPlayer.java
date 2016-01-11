@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 
 public class TestPlayer implements InvocationHandler {
-    private static interface MethodHandler {
+    private interface MethodHandler {
         Object handle(TestPlayer server, Object[] args);
     }
     private static final Constructor<? extends Player> constructor;
@@ -30,7 +30,7 @@ public class TestPlayer implements InvocationHandler {
         }
     }
 
-    private TestPlayer() {};
+    private TestPlayer() {}
 
     public static Player getInstance() {
         try {

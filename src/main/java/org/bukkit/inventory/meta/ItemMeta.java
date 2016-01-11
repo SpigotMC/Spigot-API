@@ -125,7 +125,7 @@ public interface ItemMeta extends Cloneable, ConfigurationSerializable {
     boolean hasConflictingEnchant(Enchantment ench);
 
     // Spigot start
-    public class Spigot
+    class Spigot
     {
 
         /**

@@ -1,11 +1,10 @@
 package org.bukkit;
 
-import java.util.Map;
-import java.util.regex.Pattern;
-
+import com.google.common.collect.Maps;
 import org.apache.commons.lang.Validate;
 
-import com.google.common.collect.Maps;
+import java.util.Map;
+import java.util.regex.Pattern;
 
 /**
  * All supported color values for chat
@@ -114,11 +113,11 @@ public enum ChatColor {
     private final static Map<Integer, ChatColor> BY_ID = Maps.newHashMap();
     private final static Map<Character, ChatColor> BY_CHAR = Maps.newHashMap();
 
-    private ChatColor(char code, int intCode) {
+    ChatColor(char code, int intCode) {
         this(code, intCode, false);
     }
 
-    private ChatColor(char code, int intCode, boolean isFormat) {
+    ChatColor(char code, int intCode, boolean isFormat) {
         this.code = code;
         this.intCode = intCode;
         this.isFormat = isFormat;

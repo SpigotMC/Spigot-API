@@ -36,11 +36,11 @@ public enum Statistic {
 
     private final Type type;
 
-    private Statistic() {
+    Statistic() {
         this(Type.UNTYPED);
     }
 
-    private Statistic(Type type) {
+    Statistic(Type type) {
         this.type = type;
     }
 
@@ -103,6 +103,6 @@ public enum Statistic {
         /**
          * Statistics of this type require an EntityType qualifier.
          */
-        ENTITY;
+        ENTITY
     }
 }

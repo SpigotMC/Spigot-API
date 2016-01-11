@@ -713,14 +713,14 @@ public final class Bukkit {
     /**
      * @see Server#loadServerIcon(File)
      */
-    public static CachedServerIcon loadServerIcon(File file) throws IllegalArgumentException, Exception {
+    public static CachedServerIcon loadServerIcon(File file) throws Exception {
         return server.loadServerIcon(file);
     }
 
     /**
      * @see Server#loadServerIcon(BufferedImage)
      */
-    public static CachedServerIcon loadServerIcon(BufferedImage image) throws IllegalArgumentException, Exception {
+    public static CachedServerIcon loadServerIcon(BufferedImage image) throws Exception {
         return server.loadServerIcon(image);
     }
 

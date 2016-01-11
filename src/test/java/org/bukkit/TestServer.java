@@ -13,7 +13,7 @@ import org.bukkit.plugin.SimplePluginManager;
 import com.google.common.collect.ImmutableMap;
 
 public class TestServer implements InvocationHandler {
-    private static interface MethodHandler {
+    private interface MethodHandler {
         Object handle(TestServer server, Object[] args);
     }
 
@@ -84,7 +84,7 @@ public class TestServer implements InvocationHandler {
 
     private Thread creatingThread = Thread.currentThread();
     private PluginManager pluginManager;
-    private TestServer() {};
+    private TestServer() {}
 
     public static Server getInstance() {
         return Bukkit.getServer();

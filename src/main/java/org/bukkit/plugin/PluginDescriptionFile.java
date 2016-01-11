@@ -780,7 +780,7 @@ public final class PluginDescriptionFile {
     public List<Permission> getPermissions() {
         if (permissions == null) {
             if (lazyPermissions == null) {
-                permissions = ImmutableList.<Permission>of();
+                permissions = ImmutableList.of();
             } else {
                 permissions = ImmutableList.copyOf(Permission.loadPermissions(lazyPermissions, "Permission node '%s' in plugin description file for " + getFullName() + " is invalid", defaultPerm));
                 lazyPermissions = null;
@@ -915,15 +915,15 @@ public final class PluginDescriptionFile {
         }
 
         if (map.get("commands") != null) {
-            ImmutableMap.Builder<String, Map<String, Object>> commandsBuilder = ImmutableMap.<String, Map<String, Object>>builder();
+            ImmutableMap.Builder<String, Map<String, Object>> commandsBuilder = ImmutableMap.builder();
             try {
                 for (Map.Entry<?, ?> command : ((Map<?, ?>) map.get("commands")).entrySet()) {
-                    ImmutableMap.Builder<String, Object> commandBuilder = ImmutableMap.<String, Object>builder();
+                    ImmutableMap.Builder<String, Object> commandBuilder = ImmutableMap.builder();
                     if (command.getValue() != null) {
                         for (Map.Entry<?, ?> commandEntry : ((Map<?, ?>) command.getValue()).entrySet()) {
                             if (commandEntry.getValue() instanceof Iterable) {
                                 // This prevents internal alias list changes
-                                ImmutableList.Builder<Object> commandSubList = ImmutableList.<Object>builder();
+                                ImmutableList.Builder<Object> commandSubList = ImmutableList.builder();
                                 for (Object commandSubListItem : (Iterable<?>) commandEntry.getValue()) {
                                     if (commandSubListItem != null) {
                                         commandSubList.add(commandSubListItem);
@@ -978,7 +978,7 @@ public final class PluginDescriptionFile {
         }
 
         if (map.get("authors") != null) {
-            ImmutableList.Builder<String> authorsBuilder = ImmutableList.<String>builder();
+            ImmutableList.Builder<String> authorsBuilder = ImmutableList.builder();
             if (map.get("author") != null) {
                 authorsBuilder.add(map.get("author").toString());
             }
@@ -995,7 +995,7 @@ public final class PluginDescriptionFile {
         } else if (map.get("author") != null) {
             authors = ImmutableList.of(map.get("author").toString());
         } else {
-            authors = ImmutableList.<String>of();
+            authors = ImmutableList.of();
         }
 
         if (map.get("default-permission") != null) {
@@ -1037,7 +1037,7 @@ public final class PluginDescriptionFile {
             return ImmutableList.of();
         }
 
-        final ImmutableList.Builder<String> builder = ImmutableList.<String>builder();
+        final ImmutableList.Builder<String> builder = ImmutableList.builder();
         try {
             for (final Object entry : (Iterable<?>) value) {
                 builder.add(entry.toString().replace(' ', '_'));
