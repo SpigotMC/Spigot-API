@@ -1,7 +1,7 @@
 package org.bukkit.permissions;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Represents the possible default values for permissions
@@ -13,9 +13,9 @@ public enum PermissionDefault {
     NOT_OP("!op", "notop", "!operator", "notoperator", "!admin", "notadmin");
 
     private final String[] names;
-    private final static Map<String, PermissionDefault> lookup = new HashMap<String, PermissionDefault>();
+    private final static Map<String, PermissionDefault> lookup = new ConcurrentHashMap<>();
 
-    private PermissionDefault(String... names) {
+    PermissionDefault(String... names) {
         this.names = names;
     }
 

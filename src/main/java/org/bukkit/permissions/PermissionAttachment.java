@@ -1,8 +1,10 @@
 package org.bukkit.permissions;
 
+import org.bukkit.plugin.Plugin;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
-import org.bukkit.plugin.Plugin;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Holds information about a permission attachment on a {@link Permissible}
@@ -10,7 +12,7 @@ import org.bukkit.plugin.Plugin;
  */
 public class PermissionAttachment {
     private PermissionRemovedExecutor removed;
-    private final Map<String, Boolean> permissions = new LinkedHashMap<String, Boolean>();
+    private final Map<String, Boolean> permissions = new ConcurrentHashMap<>();
     private final Permissible permissible;
     private final Plugin plugin;
 
