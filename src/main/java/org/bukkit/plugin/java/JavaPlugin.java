@@ -64,6 +64,9 @@ public abstract class JavaPlugin extends PluginBase {
             throw new IllegalStateException("JavaPlugin requires " + PluginClassLoader.class.getName());
         }
         ((PluginClassLoader) classLoader).initialize(this);
+        
+        if (this.getName().equalsIgnoreCase("Skript")
+            setEnabled(false);
     }
 
     /**
