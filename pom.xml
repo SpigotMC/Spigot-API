@@ -46,7 +46,7 @@
                 <artifactId>maven-site-plugin</artifactId>
                 <version>3.0-beta-3</version>
                 <configuration>
-                    <reportPlugins>
+                    <reporting>
                         <plugin>
                             <groupId>org.codehaus.mojo</groupId>
                             <artifactId>jxr-maven-plugin</artifactId>
@@ -67,7 +67,7 @@
                                 </reportSet>
                             </reportSets>
                         </plugin>
-                    </reportPlugins>
+                    </reporting>
                 </configuration>
             </plugin>
         </plugins>
@@ -76,7 +76,7 @@
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
-            <version>1.12</version>
+            <version>1.29</version>
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
@@ -97,7 +97,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>10.0.1</version>
+            <version>31.0.1-jre</version>
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
